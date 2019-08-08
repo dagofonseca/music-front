@@ -7,3 +7,7 @@
 #sidebar ul li {
     background-color: #343a40;
 }
+
+#sidebar ul li a {
+    color: white;
+}

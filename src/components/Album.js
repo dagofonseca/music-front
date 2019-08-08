@@ -1,36 +1,46 @@
 import React, { Component } from 'react';
-import ArtistCard from "./ArtistCard";
-import "./styles/artist.css";
+import AlbumCard from "./AlbumCard";
+
 //import axios from 'axios';
 
 const fakeData = [
     {
-        Id: 1,
-        Name: "Vicente Fernandez"
+        Id: "1",
+        Name: "Entre el amor y yo",
+        Released: "1998"
     },
     {
-        Id: 2,
-        Name: "Lola Beltrán"
+        Id: "2",
+        Name: "qué de raro tiene",
+        Released: "1992"
     },
     {
-        Id: 3,
-        Name: "Jose Alfredo Jimenez"
+        Id: "3",
+        Name: "payaso",
+        Released: 1964
     },
     {
-        Id: 4,
-        Name: "Ana Gabriel"
+        Id: "4",
+        Name: "La cigarra",
+        Released: 2000
     },
     {
-        Id: 5,
-        Name: "Chavela Vargas"
+        Id: "5",
+        Name: "20 aniversario",
+        Released: "2001"
+    },
+    {
+        Id: "6",
+        Name: "Mariachi",
+        Released: "2010"
     }
 ]
 
-class Artist extends Component {
+class Album extends Component {
     constructor() {
         super();
         this.state = {
-            artistList: fakeData
+            albumList: fakeData
         }
         // this.fetchArtist = this.fetchArtist.bind(this);
     }
@@ -50,14 +60,13 @@ class Artist extends Component {
     render() {
 
         return (
-            <div id="artistComponent">
-                <h2>Artistas</h2>
-                {this.state.artistList && this.state.artistList.map(item =>
-                    <ArtistCard key={item.Id} artist={item}/>
+            <div id="albumComponent">
+                {this.state.albumList && this.state.albumList.map(item =>
+                    <AlbumCard key={item.Id} album={item}/>
                 )}
             </div>
         );
     }
 }
 
-export default Artist;
+export default Album;

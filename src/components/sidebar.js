@@ -10,8 +10,12 @@ function Sidebar() {
 
             <ul className="list-group">
                 <p>Elige una opción</p>
-                <li className="list-group-item">Artista</li>
-                <li className="list-group-item">Album</li>
+                <li className="list-group-item">
+                    <a className="nav-link" href="#artistComponent" alt="vínculo Artistas">Artista</a>
+                </li>
+                <li className="list-group-item">
+                <a className="nav-link" href="#albumComponent" alt="vínculo Albumes">Album</a>
+                </li>
                 <li className="list-group-item">Canción</li>
             </ul>
         </nav>
