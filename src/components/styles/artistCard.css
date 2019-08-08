@@ -1,0 +1,10 @@
+.artist-card {
+    width: 20%;
+    height: 42vh; 
+    margin-left: 4%;
+    margin-bottom: 4%;    
+}
+
+.artist-card .card-title{
+    min-height: 3rem;
+}

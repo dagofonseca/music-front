@@ -1,0 +1,9 @@
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    color: white;
+}
+
+#sidebar ul li {
+    background-color: #343a40;
+}

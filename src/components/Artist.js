@@ -1,52 +1,62 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import ArtistCard from "./ArtistCard";
+import "./styles/artist.css";
+//import axios from 'axios';
 
 const fakeData = [
     {
-        id : 1,
-        name: "Vicente Fernandez"
+        Id: 1,
+        Name: "Vicente Fernandez"
     },
     {
-        id : 2,
-        name: "Lola Beltrán"
+        Id: 2,
+        Name: "Lola Beltrán"
     },
     {
-        id : 3,
-        name: "Jose Alfredo Jimenez"
+        Id: 3,
+        Name: "Jose Alfredo Jimenez"
     },
     {
-        id : 4,
-        name: "Ana Gabriel"
+        Id: 4,
+        Name: "Ana Gabriel"
+    },
+    {
+        Id: 5,
+        Name: "Chavela Vargas"
     }
 ]
 
-class Artist extends Component{
-    constructor(){
+class Artist extends Component {
+    constructor() {
         super();
         this.state = {
-            artistList: null
+            artistList: fakeData
         }
-        this.fetchArtist = this.fetchArtist.bind(this);
+        // this.fetchArtist = this.fetchArtist.bind(this);
     }
-    fetchArtist(){
-        axios("https://localhost:44303/api/artist")
-            .then(result => this.setState({
-                artistList: result.Data
-            }))
-    }
-    componentDidMount() {
-        this.fetchArtist();       
-    }
-    render(){ 
-        
-        return(
-        <div>
-            {this.state.artistList && this.state.artistList.map(item => 
-                <h3>{item.name}</h3>
-            )}
-        </div>        
+    // fetchArtist() {
+    //     axios("https://localhost:44303/api/artist")
+    //         .then(result => {
+    //             this.setState({
+    //                 artistList: result.data.Data
+    //             })
+    //             console.log(result.data.Data);
+    //         }
+    //         )
+    // }
+    // componentDidMount() {
+    //     this.fetchArtist();
+    // }
+    render() {
+
+        return (
+            <div id="artistComponent">
+                {this.state.artistList && this.state.artistList.map(item =>
+                    <ArtistCard key={item.Id} artist={item}/>
+                )}
+            </div>
         );
     }
 }
-  
+
 export default Artist;
