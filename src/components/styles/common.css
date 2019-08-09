@@ -1,5 +1,6 @@
-#artistComponent {
+#component {
     display: flex;   
     justify-content: center;
     flex-flow: row wrap;
+    max-height: 100%;
 }

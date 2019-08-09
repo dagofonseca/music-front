@@ -1,0 +1,10 @@
+.song-card {
+    width: 20%;
+    height: 42%; 
+    margin-left: 4%;
+    margin-bottom: 1%;    
+}
+
+.song-card .card-title{
+    min-height: 2rem;
+}

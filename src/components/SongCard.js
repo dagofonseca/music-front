@@ -1,15 +1,14 @@
 import React from 'react';
 import imagePlaceholder from "../images/image-placeholder.jpg";
-import "./styles/albumCard.css";
+import "./styles/songCard.css";
 
-
-function AlbumCard(props) {
+function SongCard(props) {
     return (
-        <div className="card album-card">
-            <img className="card-img-top" src={imagePlaceholder} alt="Album" />
+        <div className="card song-card">
+            <img className="card-img-top" src={imagePlaceholder} alt="Song" />
             <div className="card-body">
-                <h5 className="card-title">{props.album.Name}</h5>
-                <p>{props.album.Released}</p>
+                <h5 className="card-title">{props.song.Title}</h5>
+                <p>Género: {props.song.Genre}</p>
                 <div className="linkContainer">
                     <a href="#" className="badge badge-dark">Go somewhere</a>
                 </div>
@@ -18,4 +17,4 @@ function AlbumCard(props) {
     );
 }
 
-export default AlbumCard;
+export default SongCard;
