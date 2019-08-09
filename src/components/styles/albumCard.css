@@ -1,0 +1,10 @@
+.album-card {
+    width: 20%;
+    height: 42%; 
+    margin-left: 4%;
+    margin-bottom: 1%;    
+}
+
+.album-card .card-title{
+    min-height: 3rem;
+}

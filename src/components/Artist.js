@@ -1,46 +1,70 @@
 import React, { Component } from 'react';
+import ArtistCard from "./ArtistCard";
+import "./styles/common.css";
 import axios from 'axios';
 
-const fakeData = [
-    {
-        id: 1,
-        name: "Vicente Fernandez"
-    },
-    {
-        id: 2,
-        name: "Lola Beltrán"
-    },
-    {
-        id: 3,
-        name: "Jose Alfredo Jimenez"
-    },
-    {
-        id: 4,
-        name: "Ana Gabriel"
-    }
-]
+
+// const fakeData = [
+//     {
+//         Id: 1,
+//         Name: "Vicente Fernandez"
+//     },
+//     {
+//         Id: 2,
+//         Name: "Lola Beltrán"
+//     },
+//     {
+//         Id: 3,
+//         Name: "Jose Alfredo Jimenez"
+//     },
+//     {
+//         Id: 4,
+//         Name: "Ana Gabriel"
+//     },
+//     {
+//         Id: 5,
+//         Name: "Chavela Vargas"
+//     }
+// ]
 
 class Artist extends Component {
-
-    state = {
-        artistList: null
+    constructor() {
+        super();
+        this.state = {
+            artistList: null,
+            error: false
+        }
+        this.fetchArtist = this.fetchArtist.bind(this);
     }
-
-
-    componentDidMount() {
-        axios("https://localhost:44303/api/artist")
+    fetchArtist() {
+        axios(`${process.env.REACT_APP_API_URL}/artist`)
             .then(result => {
-                this.setState({ artistList: result.data.Data});
-                console.log(result.data.Data);
-            });
+                this.setState({
+                    artistList: result.data.Data,
+                    error: false
+                })                
+            })
+            .catch( error => {
+                console.error(error);
+                this.setState({error : true})
+            })
+    }
+    componentDidMount() {
+        this.fetchArtist();
     }
     render() {
 
         return (
             <div>
-                {this.state.artistList && this.state.artistList.map(item => 
-                    <h3>{item.Name}</h3>
-                )}
+                <h2>Artistas</h2>
+                <div id="component">
+                    {this.state.artistList && this.state.artistList.map(item =>
+                        <ArtistCard key={item.Id} artist={item} />
+                    )}
+                    {
+                        this.state.error && <h4>Algo no salió como esperabamos. Dirigete al Inicio.</h4>
+                    }
+                </div>
             </div>
         );
     }
