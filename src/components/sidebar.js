@@ -15,7 +15,7 @@ function Sidebar() {
                         aria-expanded="false">
                         Artista
                     </a>
-                    <ul class="collapse list-unstyled" id="artistSubmenu">
+                    <ul className="collapse list-unstyled" id="artistSubmenu">
                         <li>
                             <NavLink className="nav-link" exact to="/"
                                 activeStyle={activeStyleClass}
@@ -39,7 +39,7 @@ function Sidebar() {
                         aria-expanded="false">
                         Álbum
                     </a>
-                    <ul class="collapse list-unstyled" id="albumSubmenu">
+                    <ul className="collapse list-unstyled" id="albumSubmenu">
                         <li>
                             <NavLink className="nav-link" exact to="/"
                                 activeStyle={activeStyleClass}
@@ -63,7 +63,7 @@ function Sidebar() {
                         aria-expanded="false">
                         Canción
                     </a>
-                    <ul class="collapse list-unstyled" id="songSubmenu">
+                    <ul className="collapse list-unstyled" id="songSubmenu">
                         <li>
                             <NavLink className="nav-link" exact to="/"
                                 activeStyle={activeStyleClass}
