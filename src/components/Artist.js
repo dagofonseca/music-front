@@ -4,28 +4,28 @@ import "./styles/common.css";
 import axios from 'axios';
 
 
-// const fakeData = [
-//     {
-//         Id: 1,
-//         Name: "Vicente Fernandez"
-//     },
-//     {
-//         Id: 2,
-//         Name: "Lola Beltrán"
-//     },
-//     {
-//         Id: 3,
-//         Name: "Jose Alfredo Jimenez"
-//     },
-//     {
-//         Id: 4,
-//         Name: "Ana Gabriel"
-//     },
-//     {
-//         Id: 5,
-//         Name: "Chavela Vargas"
-//     }
-// ]
+const fakeData = [
+    {
+        Id: 1,
+        Name: "Vicente Fernandez"
+    },
+    {
+        Id: 2,
+        Name: "Lola Beltrán"
+    },
+    {
+        Id: 3,
+        Name: "Jose Alfredo Jimenez"
+    },
+    {
+        Id: 4,
+        Name: "Ana Gabriel"
+    },
+    {
+        Id: 5,
+        Name: "Chavela Vargas"
+    }
+]
 
 class Artist extends Component {
     constructor() {
@@ -50,7 +50,8 @@ class Artist extends Component {
             })
     }
     componentDidMount() {
-        this.fetchArtist();
+        //this.fetchArtist();
+        this.setState({ artistList: fakeData});
     }
     render() {
 

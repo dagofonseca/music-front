@@ -3,62 +3,62 @@ import SongCard from "./SongCard";
 import "./styles/common.css";
 import axios from 'axios';
 
-// const fakeData = [
-//     {
-//         Id: 1,
-//         Title: "canción 1",
-//         Released: "2000",
-//         Genre: "Ranchera"
-//     },
-//     {
-//         Id: 2,
-//         Title: "canción 2",
-//         Released: "2001",
-//         Genre: "Ranchera"
-//     },
-//     {
-//         Id: 3,
-//         Title: "canción 3",
-//         Released: "2000",
-//         Genre: "Ranchera"
-//     },
-//     {
-//         Id: 4,
-//         Title: "canción 4",
-//         Released: "2000",
-//         Genre: "Ranchera"
-//     },
-//     {
-//         Id: 5,
-//         Title: "canción 5",
-//         Released: "2000",
-//         Genre: "Ranchera"
-//     },
-//     {
-//         Id: 6,
-//         Title: "canción 6",
-//         Released: "2000",
-//         Genre: "Ranchera"
-//     },
-//     {
-//         Id: 7,
-//         Title: "canción 7",
-//         Released: "2000",
-//         Genre: "Ranchera"
-//     },
-//     {
-//         Id: 8,
-//         Title: "canción 8",
-//         Released: "2000",
-//         Genre: "Ranchera"
-//     },
-//     {
-//         Id: 9,
-//         Title: "canción 9",
-//         Released: "2000",
-//         Genre: "Ranchera"
-//     }
-// ]
+const fakeData = [
+    {
+        Id: 1,
+        Title: "canción 1",
+        Released: "2000",
+        Genre: "Ranchera"
+    },
+    {
+        Id: 2,
+        Title: "canción 2",
+        Released: "2001",
+        Genre: "Ranchera"
+    },
+    {
+        Id: 3,
+        Title: "canción 3",
+        Released: "2000",
+        Genre: "Ranchera"
+    },
+    {
+        Id: 4,
+        Title: "canción 4",
+        Released: "2000",
+        Genre: "Ranchera"
+    },
+    {
+        Id: 5,
+        Title: "canción 5",
+        Released: "2000",
+        Genre: "Ranchera"
+    },
+    {
+        Id: 6,
+        Title: "canción 6",
+        Released: "2000",
+        Genre: "Ranchera"
+    },
+    {
+        Id: 7,
+        Title: "canción 7",
+        Released: "2000",
+        Genre: "Ranchera"
+    },
+    {
+        Id: 8,
+        Title: "canción 8",
+        Released: "2000",
+        Genre: "Ranchera"
+    },
+    {
+        Id: 9,
+        Title: "canción 9",
+        Released: "2000",
+        Genre: "Ranchera"
+    }
+]
 
 class Song extends Component {
     constructor() {
@@ -84,7 +84,8 @@ class Song extends Component {
             })
     }
     componentDidMount() {
-        this.fetchArtist();
+        //this.fetchArtist();
+        this.setState({songList: fakeData});
     }
     render() {
 

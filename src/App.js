@@ -12,15 +12,15 @@ import CreateManager from "./components/CreateManager";
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <div className="wrapper">
+      <Route path='/' exact component={Home} />
+      {/* <div className="wrapper">
+        <Navbar />
         <Sidebar />
-        <Route path='/' exact component={Home} />
         <Route path='/artists' component={Artist} />
         <Route path='/albums' component={Album} />
         <Route path='/songs' component={Song} />
         <Route path='/:rol/create' component={CreateManager} />
-      </div>
+      </div> */}
     </div>
   );
 }
