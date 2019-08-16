@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Slider from "./Slider";
 import img1 from "../images/landing-page.jpg";
 import img2 from "../images/amplifier.jpg";
 import img3 from "../images/disc.jpg";
@@ -7,12 +8,14 @@ import img5 from "../images/microphone.jpg";
 import img6 from "../images/guitar.jpg";
 import "./styles/home.css"
 
-const backgroundImages = [img1, img2, img3, img4, img5, img6];
-
 class Home extends Component {
   constructor() {
     super();
-    this.state = { borders: [], lastSection: 1 };
+    this.state = { 
+      backgroundImages: [img1, img2, img3, img4, img5, img6],
+      borders: [], 
+      lastSection: 1 
+    };
     this.handleClick = this.handleClick.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
     this.calculateBorders = this.calculateBorders.bind(this);
@@ -55,9 +58,7 @@ class Home extends Component {
 
   calculateSection(currentHorizontalPosition) {
     const { borders } = this.state;
-    console.log(borders);
-    console.log(currentHorizontalPosition);
-    
+        
     if(currentHorizontalPosition <= borders[0]){
       return 0;
     }
@@ -77,9 +78,9 @@ class Home extends Component {
 
   calculateBorders() {
     const width = window.innerWidth;
-    const firstBorder = width / backgroundImages.length;
+    const firstBorder = width / this.state.backgroundImages.length;
     let response = [firstBorder];
-    for (let borderNumber = 2; borderNumber < backgroundImages.length; borderNumber++) {
+    for (let borderNumber = 2; borderNumber < this.state.backgroundImages.length; borderNumber++) {
       response.push(firstBorder * borderNumber);
     }    
     this.setState({borders: response});
@@ -90,11 +91,11 @@ class Home extends Component {
       <div id="homeContainer">
         <div className="homeSection"
           onMouseMove={this.handleMouseMove} >
-          {backgroundImages.map(item => {
-            return <div className="backImg"
+          {this.state.backgroundImages.map( (item, i) => (
+            <div className="backImg" key={i}
               style={{ backgroundImage: `url(${item})` }} >
             </div>
-          })}
+          ))}
 
           <div id="contentFirstHomeSection">
             <div id="logoText">
@@ -114,9 +115,7 @@ class Home extends Component {
         </div>
 
         <div className="homeSection" id="carouselHome" >
-          <div >
-
-          </div>
+          <Slider />
         </div>
       </div>
     );

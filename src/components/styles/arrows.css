@@ -1,0 +1,30 @@
+.nextArrow, .backArrow {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;     
+    cursor: pointer;
+    cursor: pointer;
+    transition: transform ease-in .1s;  
+}
+/* .nextArrow:hover, .BackArrow:hover {
+    transition: transform ease-in .1s;
+    transform: scale(1.1)
+} */
+
+.nextArrow {
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    z-index: 999;
+    color: #fff;
+  }
+  
+  .backArrow {
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    z-index: 999;
+    color: #fff;
+  }
