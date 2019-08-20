@@ -54,20 +54,7 @@ class Slider extends Component {
             header: `Slide ${i}`
         }));
         return (
-            <div className="carrouselSlider">
-                {/* <div className="sliderWrapper"
-                    style={{
-                        transform: `translateX(${this.state.translateValue}px)`,
-                        transition: 'transform ease-out 0.60s'
-                    }}>
-                    {
-                        this.state.images.map((image, i) => (
-                            <Slide key={i} image={image} />
-                        ))
-                    }
-                </div>
-                <LeftArrow goToPrevSlide={this.goToPrevSlide} />
-                <RightArrow goToNextSlide={this.goToNextSlide} /> */}
+            <div className="carrouselSlider">                
                 <UncontrolledCarousel items={items}/>
             </div>
         );
