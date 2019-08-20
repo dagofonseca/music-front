@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./styles/slider.css";
+import { UncontrolledCarousel } from "reactstrap";
 import Slide from "./Slide";
 import { LeftArrow, RightArrow } from "./Arrow";
 import img1 from "../images/story1.jpg";
@@ -46,9 +47,15 @@ class Slider extends Component {
     }
 
     render() {
+        const items = this.state.images.map((url, i) =>({
+            src: url,
+            altText: `Slide ${i}`,
+            caption: `Slide ${i}`,
+            header: `Slide ${i}`
+        }));
         return (
             <div className="carrouselSlider">
-                <div className="sliderWrapper"
+                {/* <div className="sliderWrapper"
                     style={{
                         transform: `translateX(${this.state.translateValue}px)`,
                         transition: 'transform ease-out 0.60s'
@@ -60,7 +67,8 @@ class Slider extends Component {
                     }
                 </div>
                 <LeftArrow goToPrevSlide={this.goToPrevSlide} />
-                <RightArrow goToNextSlide={this.goToNextSlide} />
+                <RightArrow goToNextSlide={this.goToNextSlide} /> */}
+                <UncontrolledCarousel items={items}/>
             </div>
         );
     }
