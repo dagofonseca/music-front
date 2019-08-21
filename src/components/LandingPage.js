@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Container, Row, Col, Button  } from "reactstrap";
 import Slider from "./Slider";
 import img1 from "../images/landing-page.jpg";
 import img2 from "../images/amplifier.jpg";
@@ -11,10 +12,10 @@ import "./styles/landingPage.css"
 class LandingPage extends Component {
   constructor() {
     super();
-    this.state = { 
+    this.state = {
       backgroundImages: [img1, img2, img3, img4, img5, img6],
-      borders: [], 
-      lastSection: 1 
+      borders: [],
+      lastSection: 1
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
@@ -58,20 +59,19 @@ class LandingPage extends Component {
 
   calculateSection(currentHorizontalPosition) {
     const { borders } = this.state;
-        
-    if(currentHorizontalPosition <= borders[0]){
+
+    if (currentHorizontalPosition <= borders[0]) {
       return 0;
     }
-    else if(currentHorizontalPosition > borders[borders.length - 1]){      
+    else if (currentHorizontalPosition > borders[borders.length - 1]) {
       return borders.length;
     }
-    else{
+    else {
       for (let index = 1; index < borders.length; index++) {
-        if(currentHorizontalPosition <= borders[index] && 
-           currentHorizontalPosition > borders[index-1] )
-        {
+        if (currentHorizontalPosition <= borders[index] &&
+          currentHorizontalPosition > borders[index - 1]) {
           return index;
-        }        
+        }
       }
     }
   }
@@ -82,42 +82,52 @@ class LandingPage extends Component {
     let response = [firstBorder];
     for (let borderNumber = 2; borderNumber < this.state.backgroundImages.length; borderNumber++) {
       response.push(firstBorder * borderNumber);
-    }    
-    this.setState({borders: response});
+    }
+    this.setState({ borders: response });
   }
 
   render() {
     return (
-      <div id="homeContainer">
-        <div className="homeSection"
-          onMouseMove={this.handleMouseMove} >
-          {this.state.backgroundImages.map( (item, i) => (
-            <div className="backImg" key={i}
-              style={{ backgroundImage: `url(${item})` }} >
-            </div>
-          ))}
+      <Container fluid >
+        <Row>
+          <Col className="p-0">
+            <div className="homeSection"
+              onMouseMove={this.handleMouseMove} >
+              {this.state.backgroundImages.map((item, i) => (
+                <div className="backImg" key={i}
+                  style={{ backgroundImage: `url(${item})` }} >
+                </div>
+              ))}
 
-          <div id="contentFirstHomeSection">
-            <div id="logoText">
-              <h2>Muxsis</h2>
-              <h3>una plataforma para músicos independientes</h3>
-            </div>
-            
-            <div id="buttonMore">
-              <div className="blurButton">
-                <a href="#carouselHome"
-                  onClick={(e) => this.handleClick(e, "carouselHome")} >
-                  conocer más
-                </a>
+              <div id="contentFirstHomeSection">
+                <div id="logoText">
+                  <h2>Muxsis</h2>
+                  <h3>una plataforma para músicos independientes</h3>
+                </div>
+
+
+                <div id="buttonMore">
+                  <Button className="blurButton"                      
+                      onClick={(e) => this.handleClick(e, "carouselHome")}
+                  >                   
+                      conocer más
+                    
+                  </Button >
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </Col>
+        </Row>
 
-        <div className="homeSection" id="carouselHome" >
-          <Slider />
-        </div>
-      </div>
+        <Row>
+          <Col>
+            <div className="homeSection" id="carouselHome" >
+              <Slider />
+            </div>
+          </Col>
+        </Row>
+      </Container>
+
     );
   }
 }
