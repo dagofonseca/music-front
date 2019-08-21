@@ -4,7 +4,10 @@ import {
     Carousel,
     CarouselItem,
     CarouselControl,
-    CarouselCaption
+    Container,
+    Row,
+    Col,
+    Button
 } from "reactstrap";
 import img1 from "../images/story1.jpg";
 import img2 from "../images/story2.jpg";
@@ -59,38 +62,45 @@ class Slider extends Component {
     carouselText(index) {
         if (index === 0) {
             return (
-                <div className="carouselTextArtist">
-                    <h2>Artistas</h2>
-                    <p>Los mejores artistas independientes reunidos en un solo lugar.</p>
-                </div>
+                <Col xs={{ size: 4, offset: 3 }} md={{ size: 3, offset: 1 }}>
+                    <div className="carouselText" style={{color: "black"}}>
+                        <h2>Artistas</h2>
+                        <p>Los mejores artistas independientes reunidos en un solo lugar.</p>
+                    </div>
+                </Col>
             );
         }
         else if (index === 1) {
             return (
-                <div className="carouselTextAlbum">
-                    <h2>Álbums</h2>
-                    <p>Los mejores álbumes reunidos en un solo lugar.</p>
-                </div>
+                <Col xs={{ size: 4, offset: 3 }} md={{ size: 3, offset: 5 }}>
+
+                    <div className="carouselText">
+                        <h2>Álbums</h2>
+                        <p>Los mejores álbumes reunidos en un solo lugar.</p>
+                    </div>
+                </Col>
             );
         }
         else {
             return (
-                <div className="carouselTextSong">
-                    <h2>Canciones</h2>
-                    <p>Las mejores canciones reunidas en un solo lugar.</p>
-                </div>
+                <Col xs={{ size: 4, offset: 3 }} md={{ size: 3, offset: 8 }}>
+                    <div className="carouselText">
+                        <h2>Canciones</h2>
+                        <p>Las mejores canciones reunidas en un solo lugar.</p>
+                    </div>
+                </Col>
             );
         }
     }
     registerButton(index) {
-        if(index === 2){
+        if (index === 2) {
             return (
                 <div id="buttonRegister">
-                    <div className="blurButton">
+                    <Button className="blurButton">
                         <a href="/home" >
                             Registrarse
                         </a>
-                    </div>
+                    </Button>
                 </div>
             );
         }
@@ -104,26 +114,28 @@ class Slider extends Component {
                     onExiting={this.onExiting}
                     onExited={this.onExited}
                 >
-                    <img src={image.src} alt={image.caption} />
+                    <img className="w-100" src={image.src} alt={image.caption} />
 
                 </CarouselItem>
             );
         });
         return (
-            <div className="carrouselSlider">
-                {this.carouselText(activeIndex)}
-                {this.registerButton(activeIndex)}
-                <Carousel
-                    activeIndex={activeIndex}
-                    next={this.next}
-                    previous={this.previous}
-                    autoPlay={false}
-                >
-                    {items}
-                    <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-                    <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
-                </Carousel>
-            </div>
+            <Container fluid className="carrouselSlider">
+                <Row>
+                    {this.carouselText(activeIndex)}
+                    {this.registerButton(activeIndex)}
+                    <Carousel
+                        activeIndex={activeIndex}
+                        next={this.next}
+                        previous={this.previous}
+                        autoPlay={false}
+                    >
+                        {items}
+                        <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
+                        <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+                    </Carousel>
+                </Row>
+            </Container>
         );
     }
 }

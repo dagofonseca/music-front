@@ -10,40 +10,16 @@
     align-items: center;
 }
 
-.carouselTextArtist {
-    position: absolute;
-    width: 20%;
-    z-index: 2;    
-    white-space: normal;
-    align-self: flex-start;
-    margin: 3%;   
-}
-
-.carouselTextAlbum {
-    position: absolute;
-    width: 20%;
+.carouselText {
+    position: absolute;    
     color: #ffffff;
     z-index: 2;    
     white-space: normal;
-    align-self: center;
-    margin: 3%;
-}
-
-.carouselTextSong {
-    position: absolute;
-    width: 20%;
-    color: #ffffff;
-    z-index: 2;    
-    white-space: normal;
-    align-self: flex-end;
-    margin-top: 3%;
-    padding-right: 3%;
+    margin-top: 8%;
 }
 
 #buttonRegister {
     position: absolute;
     z-index: 3;
-    width: 100%;
-    bottom: 0;
-    left: 45%;
+    width: 100%;    
 }
