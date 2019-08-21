@@ -1,88 +1,89 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
 import "./styles/sidebar.css";
+import {
+    Nav, 
+    NavItem, 
+    NavLink , 
+    NavbarBrand, 
+    Container,
+    Row, 
+    Col,  
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem } from 'reactstrap';         
 
-function Sidebar() {
-    const activeStyleClass = { background: "#d65a31" };
-    return (
-        <nav id="sidebar" className="bg-dark">
-            <ul className="list-group">
-                <p>Elige una opción</p>
-                <li className="list-group-item">
-                    <a className="dropdown-toggle nav-link" href="#artistSubmenu"
-                        alt="artistas"
-                        data-toggle="collapse"
-                        aria-expanded="false">
-                        Artista
-                    </a>
-                    <ul className="collapse list-unstyled" id="artistSubmenu">
-                        <li>
-                            <NavLink className="nav-link" exact to="/"
-                                activeStyle={activeStyleClass}
-                                alt="vínculo crear artistas">
-                                Crear
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink className="nav-link" to="/artists"
-                                activeStyle={activeStyleClass}
-                                alt="vínculo artistas">
-                                Ver artistas
-                            </NavLink>
-                        </li>
-                    </ul>
-                </li>
-                <li className="list-group-item">
-                    <a className="dropdown-toggle nav-link" href="#albumSubmenu"
-                        alt="álbumes"
-                        data-toggle="collapse"
-                        aria-expanded="false">
-                        Álbum
-                    </a>
-                    <ul className="collapse list-unstyled" id="albumSubmenu">
-                        <li>
-                            <NavLink className="nav-link" exact to="/"
-                                activeStyle={activeStyleClass}
-                                alt="vínculo crear álbumes">
-                                Crear
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink className="nav-link" to="/albums"
-                                activeStyle={activeStyleClass}
-                                alt="vínculo álbumes">
-                                Ver álbumes
-                            </NavLink>
-                        </li>
-                    </ul>
-                </li>
-                <li className="list-group-item">
-                    <a className="dropdown-toggle nav-link" href="#songSubmenu"
-                        alt="canciones"
-                        data-toggle="collapse"
-                        aria-expanded="false">
-                        Canción
-                    </a>
-                    <ul className="collapse list-unstyled" id="songSubmenu">
-                        <li>
-                            <NavLink className="nav-link" exact to="/"
-                                activeStyle={activeStyleClass}
-                                alt="vínculo crear canciones">
-                                Crear
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink className="nav-link" to="/songs"
-                                activeStyle={activeStyleClass}
-                                alt="vínculo canciones">
-                                Ver canciones
-                            </NavLink>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    );
+class Sidebar extends React.Component {
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            firstCollapse: false,
+            secondCollapse: false
+        }
+        this.toggle = this.toggle.bind(this);
+        this.toggle2 = this.toggle2.bind(this);
+    }
+    toggle( ) {        
+        this.setState({firstCollapse: !this.state.firstCollapse})        
+    }
+    toggle2( ) {        
+        this.setState({secondCollapse: !this.state.secondCollapse})        
+    }
+
+    render() {
+        const {firstCollapse, secondCollapse} = this.state;
+        return (
+            <Container fluid>
+                <Row>
+                    <Col xs="5" md="3" className="side p-0">
+                        <Nav vertical>
+                            <NavbarBrand href="/" className="mc-auto">MUXSIS</NavbarBrand>
+                            <UncontrolledDropdown nav inNavbar className="mr-auto" onClick={this.toggle} >
+                                <DropdownToggle nav caret className='padleft'>Explorer music</DropdownToggle>
+                                <Collapse isOpen={firstCollapse}>
+                                    <NavItem>
+                                    <NavLink className="textNavbar" href="#">Your Albums</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink className="textNavbar" href="#">Create Album</NavLink> 
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink className="textNavbar" href="#">Add Artist</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink className="textNavbar" href="#">Appearance</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink className="textNavbar" href="#">Graphic statistics</NavLink>
+                                    </NavItem>
+                                </Collapse>
+                            </UncontrolledDropdown>
+                            <UncontrolledDropdown nav inNavbar className="mr-auto" onClick={this.toggle2}>
+                                <DropdownToggle nav caret className='padleft'>
+                                    Your Music
+                                </DropdownToggle>
+                                <Collapse isOpen={secondCollapse}>
+                                    <NavItem>
+                                        <NavLink className="textNavbar" href="#">Favority</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink className="textNavbar" href="#">History</NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink className="textNavbar" href="#">Playlist</NavLink>
+                                    </NavItem>
+                                </Collapse>
+                            </UncontrolledDropdown>
+                        </Nav>
+                    </Col>
+                </Row>
+            </Container>      
+        );
+    } 
 }
 
 export default Sidebar;

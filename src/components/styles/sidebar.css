@@ -1,13 +1,33 @@
-#sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    color: white;
+.side {
+ background-color: #131212;   
+ border: 2px solid black;
+ height: 500px;    
 }
 
-#sidebar ul li {
-    background-color: #343a40;
+.mc-auto{
+    font-family: Arial, Helvetica, sans-serif;
+    color:white;
 }
 
-#sidebar ul li a {
-    color: white;
+.mc-auto:hover{
+    color:#CB7101;
+}
+
+.padleft {
+    padding-left: 20px;
+    font-family: Arial black, Helvetica, sans-serif;
+    color:#FF8E00;
+}
+
+.padleft:hover {
+    color:#CB7101;
+}
+
+.textNavbar{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:white;
+}
+
+.textNavbar:hover{
+    color:#A4A29F;
 }

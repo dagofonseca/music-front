@@ -8,13 +8,12 @@ import CreateManager from "./CreateManager";
 
 function Home() {
     return (
-        <div className="wrapper">
-            <Sidebar />         
-            
-            <Route path='/artists' component={Artist} />
+        <div>
+            <Sidebar />            
+            {/* <Route path='/artists' component={Artist} />
             <Route path='/albums' component={Album} />
             <Route path='/songs' component={Song} />
-            <Route path='/:rol/create' component={CreateManager} />
+            <Route path='/:rol/create' component={CreateManager} /> */}
         </div>
     );
 }
