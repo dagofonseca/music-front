@@ -1,7 +1,40 @@
-.side {
- background-color: #131212;   
- border: 2px solid black;
+.conten-sidebar{
+    max-width: 20%;
+    background-color: #131212; 
+}
+
+.side { 
  height: 500px;    
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    margin: 16%;
+}
+
+.logo h3 {
+    color: #ffffff;   
+    margin-left: 10px; 
+}
+
+.imglogo{
+    width: 2rem;
+    height: 2rem;
+}
+
+.avatarText {
+    color:white;
+    font-size: 0.5rem;
+    text-align: left;
+}
+
+.avatarText h5{
+    font-size: 0.8rem;
+}
+
+.imgAvatar{
+    border-radius: 50%;
 }
 
 .mc-auto{

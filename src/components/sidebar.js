@@ -1,5 +1,7 @@
 import React from 'react';
 import "./styles/sidebar.css";
+import imgAvatar from "../images/avatar-artist.jpg";
+import logo from "../images/logo.png";
 import {
     Nav, 
     NavItem, 
@@ -37,11 +39,30 @@ class Sidebar extends React.Component {
     render() {
         const {firstCollapse, secondCollapse} = this.state;
         return (
-            <Container fluid>
+            <Container fluid className="conten-sidebar">
                 <Row>
-                    <Col xs="5" md="3" className="side p-0">
-                        <Nav vertical>
-                            <NavbarBrand href="/" className="mc-auto">MUXSIS</NavbarBrand>
+                    <Col>
+                        <div className="logo">
+                            <img src={logo} alt="logo" className="imglogo" />
+                            <h3>MUXSIS</h3>
+                        </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md="4">
+                        <img src={imgAvatar} alt="Avatar del artista" className="w-100 imgAvatar" />
+                    </Col>
+                    <Col>
+                        <div className="avatarText">
+                            <h5>Mariah Caray</h5>
+                            <p>Passionate Musician</p>
+                        </div>                        
+                    </Col>
+                </Row>
+                <Row>
+                    <Col  className="side p-0">
+                        <Nav vertical>                          
+                            
                             <UncontrolledDropdown nav inNavbar className="mr-auto" onClick={this.toggle} >
                                 <DropdownToggle nav caret className='padleft'>Explorer music</DropdownToggle>
                                 <Collapse isOpen={firstCollapse}>
