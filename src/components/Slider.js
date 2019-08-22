@@ -63,7 +63,7 @@ class Slider extends Component {
         if (index === 0) {
             return (
                 <Col xs={{ size: 4, offset: 3 }} md={{ size: 3, offset: 1 }}>
-                    <div className="carouselText" style={{color: "black"}}>
+                    <div className="carouselText" style={{ color: "black" }}>
                         <h2>Artistas</h2>
                         <p>Los mejores artistas independientes reunidos en un solo lugar.</p>
                     </div>
@@ -87,21 +87,21 @@ class Slider extends Component {
                     <div className="carouselText">
                         <h2>Canciones</h2>
                         <p>Las mejores canciones reunidas en un solo lugar.</p>
-                    </div>
+                        <Button className="blurButton">
+                            <a href="/home" >
+                                Registrarse
+                        </a>
+                        </Button>
+                    </div>                    
                 </Col>
+
             );
         }
     }
     registerButton(index) {
         if (index === 2) {
             return (
-                <div id="buttonRegister">
-                    <Button className="blurButton">
-                        <a href="/home" >
-                            Registrarse
-                        </a>
-                    </Button>
-                </div>
+              <p>hola</p>  
             );
         }
     }
@@ -123,7 +123,7 @@ class Slider extends Component {
             <Container fluid className="carrouselSlider">
                 <Row>
                     {this.carouselText(activeIndex)}
-                    {this.registerButton(activeIndex)}
+                    {/* {this.registerButton(activeIndex)} */}
                     <Carousel
                         activeIndex={activeIndex}
                         next={this.next}
