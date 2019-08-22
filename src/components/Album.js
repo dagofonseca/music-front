@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { Container, Row, Col } from "reactstrap";
 import AlbumCard from "./AlbumCard";
 import "./styles/common.css"
 import axios from 'axios';
+import imgTop50 from "../images/top50.png";
+import imgTrending from "../images/trending.png";
+import imgViral from "../images/viral.png";
 
 const fakeData = [
     {
@@ -44,6 +48,7 @@ class Album extends Component {
             error: false
         }
         this.fetchArtist = this.fetchArtist.bind(this);
+        this.albumsCard = this.albumsCard.bind(this);
     }
     fetchArtist() {
         axios(`${process.env.REACT_APP_API_URL}/album`)
@@ -58,24 +63,58 @@ class Album extends Component {
                 this.setState({ error: true })
             })
     }
+
     componentDidMount() {
         //this.fetchArtist();
-        this.setState({albumList: fakeData});
+        this.setState({ albumList: fakeData });
     }
+
+    albumsCard() {
+        const { albumList } = this.state;
+        if (albumList === null || albumList.length === 0) {
+            return <div>No hay resultados</div>
+        }
+        const response = albumList.map((album, key) => {
+            return (
+                <Col lg="5" xl="4">
+                    <AlbumCard key={key} album={album} />
+                </Col>
+            );
+        });
+        return response;
+    }
+
     render() {
 
         return (
-            <div>
-                <h2>Álbumes</h2>
-                <div id="component">
-                    {this.state.albumList && this.state.albumList.map(item =>
-                        <AlbumCard key={item.Id} album={item} />
-                    )}
-                    {
-                        this.state.error && <h4>Algo no salió como esperabamos. Dirigete al Inicio.</h4>
-                    }
-                </div>
-            </div>
+            <Container>
+                <Row>
+                    <Col>
+                        <h2>your albums</h2>
+                    </Col>
+                </Row>
+                <Row className="recommended">
+                    <Col md="auto">
+                        <img src={imgTop50} alt="top 50" />
+                    </Col>
+                    <Col md="auto">
+                        <img src={imgViral} alt="viral" />
+                    </Col>
+                    <Col md="auto">
+                        <img src={imgTrending} alt="trending" />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <p>Albums created by you</p>
+                    </Col>
+                </Row>
+                <Container>
+                    <Row>
+                        {this.albumsCard()}
+                    </Row>
+                </Container>
+            </Container>
         );
     }
 }

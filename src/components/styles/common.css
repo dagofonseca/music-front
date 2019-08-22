@@ -4,3 +4,9 @@
     flex-flow: row wrap;
     max-height: 100%;
 }
+
+.recommended {
+    display: flex; 
+    flex-flow: row wrap;
+    justify-content: flex-start;   
+}

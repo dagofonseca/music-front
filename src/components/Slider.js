@@ -36,8 +36,7 @@ class Slider extends Component {
         this.previous = this.previous.bind(this);
         this.onExiting = this.onExiting.bind(this);
         this.onExited = this.onExited.bind(this);
-        this.carouselText = this.carouselText.bind(this);
-        this.registerButton = this.registerButton.bind(this);
+        this.carouselText = this.carouselText.bind(this);        
     }
 
     onExiting() {
@@ -88,20 +87,13 @@ class Slider extends Component {
                         <h2>Canciones</h2>
                         <p>Las mejores canciones reunidas en un solo lugar.</p>
                         <Button className="blurButton">
-                            <a href="/home" >
+                            <a href="/dashboard" >
                                 Registrarse
-                        </a>
+                            </a>
                         </Button>
-                    </div>                    
+                    </div>
                 </Col>
 
-            );
-        }
-    }
-    registerButton(index) {
-        if (index === 2) {
-            return (
-              <p>hola</p>  
             );
         }
     }
@@ -123,7 +115,6 @@ class Slider extends Component {
             <Container fluid className="carrouselSlider">
                 <Row>
                     {this.carouselText(activeIndex)}
-                    {/* {this.registerButton(activeIndex)} */}
                     <Carousel
                         activeIndex={activeIndex}
                         next={this.next}

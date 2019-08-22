@@ -1,10 +1,7 @@
-.album-card {
-    width: 20%;
-    height: 42%; 
-    margin-left: 4%;
-    margin-bottom: 1%;    
+.property {    
+    display: flex;
+    font-size: 0.8rem;     
 }
-
-.album-card .card-title{
-    min-height: 3rem;
+.property p {
+    margin: 0;
 }
