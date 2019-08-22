@@ -4,4 +4,9 @@
 }
 .property p {
     margin: 0;
+    color: #FF8E00;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.propertyValue {
+    color: #ffffff !important;
 }

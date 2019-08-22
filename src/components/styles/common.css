@@ -4,9 +4,41 @@
     flex-flow: row wrap;
     max-height: 100%;
 }
-
-.recommended {
-    display: flex; 
+.albumContainer {
+    background-color: #000000;
+}
+.albumSectionTitle {
+    color: #FF8E00;
+    font-family: Dubai, Arial;
+    margin: 3rem 0;
+    padding-left: 15px;
+}
+.recommended {    
+    display: flex;        
     flex-flow: row wrap;
     justify-content: flex-start;   
+}
+.recommendedItem {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;    
+}
+
+.recommendedImgText {
+    position: absolute;
+    color: white;
+    font-family: Dubai;
+    font-size: 1.2rem;
+}
+
+.recommendedImgText h2 {
+    font-weight: bold;
+}
+.yourAlbums {
+    color: white;
+    font-family: Arial;
+    font-size: 0.8rem;
+    margin: 1.5rem 0;
+    padding-left: 15px;
 }

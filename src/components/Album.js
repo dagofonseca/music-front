@@ -7,39 +7,6 @@ import imgTop50 from "../images/top50.png";
 import imgTrending from "../images/trending.png";
 import imgViral from "../images/viral.png";
 
-const fakeData = [
-    {
-        Id: "1",
-        Name: "Entre el amor y yo",
-        Released: "1998"
-    },
-    {
-        Id: "2",
-        Name: "qué de raro tiene",
-        Released: "1992"
-    },
-    {
-        Id: "3",
-        Name: "payaso",
-        Released: 1964
-    },
-    {
-        Id: "4",
-        Name: "La cigarra",
-        Released: 2000
-    },
-    {
-        Id: "5",
-        Name: "20 aniversario",
-        Released: "2001"
-    },
-    {
-        Id: "6",
-        Name: "Mariachi",
-        Released: "2010"
-    }
-]
-
 class Album extends Component {
     constructor() {
         super();
@@ -47,10 +14,10 @@ class Album extends Component {
             albumList: null,
             error: false
         }
-        this.fetchArtist = this.fetchArtist.bind(this);
+        this.fetchAlbum = this.fetchAlbum.bind(this);
         this.albumsCard = this.albumsCard.bind(this);
     }
-    fetchArtist() {
+    fetchAlbum() {
         axios(`${process.env.REACT_APP_API_URL}/album`)
             .then(result => {
                 this.setState({
@@ -65,8 +32,8 @@ class Album extends Component {
     }
 
     componentDidMount() {
-        //this.fetchArtist();
-        this.setState({ albumList: fakeData });
+        this.fetchAlbum();
+        //this.setState({ albumList: fakeData });
     }
 
     albumsCard() {
@@ -87,27 +54,43 @@ class Album extends Component {
     render() {
 
         return (
-            <Container>
+            <Container fluid className="albumContainer" >
                 <Row>
-                    <Col>
-                        <h2>your albums</h2>
-                    </Col>
+                    <h2 className="albumSectionTitle">Your Albums</h2>
                 </Row>
                 <Row className="recommended">
-                    <Col md="auto">
-                        <img src={imgTop50} alt="top 50" />
+                    <Col md="auto" >
+                        <div className="recommendedItem">
+                            <img src={imgTop50} alt="top 50" />
+                            <div className="recommendedImgText">
+                                <h2>Top 50</h2>
+                                <p>The best songs</p>
+                            </div>
+                        </div>
                     </Col>
                     <Col md="auto">
-                        <img src={imgViral} alt="viral" />
+                        <div className="recommendedItem">
+                            <img src={imgViral} alt="viral" />
+                            <div className="recommendedImgText">
+                                <h2>Viral</h2>
+                                <p>The most listened</p>
+                            </div>
+                        </div>
                     </Col>
                     <Col md="auto">
-                        <img src={imgTrending} alt="trending" />
+                        <div className="recommendedItem">
+                            <img src={imgTrending} alt="trending" />
+                            <div className="recommendedImgText">
+                                <h2>Trending</h2>
+                                <p>The most new</p>
+                            </div>
+                        </div>
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
-                        <p>Albums created by you</p>
-                    </Col>
+                    <p className="yourAlbums">
+                        Albums created by you
+                    </p>
                 </Row>
                 <Container>
                     <Row>

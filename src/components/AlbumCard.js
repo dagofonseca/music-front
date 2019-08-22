@@ -10,7 +10,7 @@ import "./styles/albumCard.css";
 function AlbumCard(props) {
     return (
         <div>
-            <Card>
+            <Card style={{backgroundColor: "#000000"}}>
                 <Row noGutters>
                     <Col md="4">
                         <CardImg top src={imgPlaceholder}
@@ -20,19 +20,19 @@ function AlbumCard(props) {
                     <Col md="8">
                         <CardBody>
                             <div className="property">
-                                <p style={{ color: "orange" }}>Artist:</p>
+                                <p >Artist:</p>
                                 <p className="propertyValue">el artista</p>
                             </div>
                             <div className="property">
-                                <p style={{ color: "orange" }}>Album:</p>
+                                <p >Album:</p>
                                 <p className="propertyValue">{props.album.Name}</p>
                             </div>
                             <div className="property">
-                                <p style={{ color: "orange" }}>Released:</p>
+                                <p >Released:</p>
                                 <p className="propertyValue">{props.album.Released}</p>
                             </div>
                             <div className="property">
-                                <p style={{ color: "orange" }}>Genre:</p>
+                                <p >Genre:</p>
                                 <p className="propertyValue">Contemporaneo</p>
                             </div>
                         </CardBody>

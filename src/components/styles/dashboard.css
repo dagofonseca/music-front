@@ -1,5 +1,6 @@
 .dashCont {
     display: flex;    
     flex-flow: row nowrap;
-    align-items: stretch;   
+    align-items: stretch;
+    min-height: 100vh;
 }
