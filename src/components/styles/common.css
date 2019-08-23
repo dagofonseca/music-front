@@ -7,10 +7,29 @@
 .albumContainer {
     background-color: #000000;
 }
+.searchRow {
+    justify-content: flex-end;
+    padding: 2%;
+}
+.searchInput {    
+    border: transparent;
+    background-color: #707070;
+}
+.searchInput:focus {    
+    border: transparent;
+    background-color: #707070;
+    color: #eeeeee;
+}
+.searchInput::placeholder {
+    color: white;
+}
+.searchInput::-ms-input-placeholder {
+    color: white;
+}
 .albumSectionTitle {
     color: #FF8E00;
     font-family: Dubai, Arial;
-    margin: 3rem 0;
+    margin-bottom: 3rem;
     padding-left: 15px;
 }
 .recommended {    

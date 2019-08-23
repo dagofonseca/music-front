@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col,
+    InputGroup, InputGroupAddon, Input, Button
+} from "reactstrap";
 import AlbumCard from "./AlbumCard";
 import "./styles/common.css"
 import axios from 'axios';
@@ -43,8 +45,8 @@ class Album extends Component {
         }
         const response = albumList.map((album, key) => {
             return (
-                <Col lg="5" xl="4">
-                    <AlbumCard key={key} album={album} />
+                <Col lg="5" xl="4" key={key}>
+                    <AlbumCard album={album} />
                 </Col>
             );
         });
@@ -55,6 +57,14 @@ class Album extends Component {
 
         return (
             <Container fluid className="albumContainer" >
+                <Row className="searchRow">
+                    <InputGroup style={{width: "auto"}}>
+                        <InputGroupAddon addonType="prepend">
+                            <Button style={{backgroundColor: "#707070"}}><i className="fa fa-search"></i></Button>
+                        </InputGroupAddon>
+                        <Input type="search" placeholder="Search..." className="searchInput"/>
+                    </InputGroup>                    
+                </Row>
                 <Row>
                     <h2 className="albumSectionTitle">Your Albums</h2>
                 </Row>
