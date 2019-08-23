@@ -1,13 +1,66 @@
-#sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    color: white;
+.conten-sidebar{
+    max-width: 20%;
+    background-color: #131212; 
 }
 
-#sidebar ul li {
-    background-color: #343a40;
+.side { 
+ height: 500px;    
 }
 
-#sidebar ul li a {
-    color: white;
+.logo {
+    display: flex;
+    justify-content: center;
+    margin: 16%;
+}
+
+.logo h3 {
+    color: #ffffff;   
+    margin-left: 10px; 
+}
+
+.imglogo{
+    width: 2rem;
+    height: 2rem;
+}
+
+.avatarText {
+    color:white;
+    font-size: 0.5rem;
+    text-align: left;
+}
+
+.avatarText h5{
+    font-size: 0.8rem;
+}
+
+.imgAvatar{
+    border-radius: 50%;
+}
+
+.mc-auto{
+    font-family: Arial, Helvetica, sans-serif;
+    color:white;
+}
+
+.mc-auto:hover{
+    color:#CB7101;
+}
+
+.padleft {
+    padding-left: 20px;
+    font-family: Arial black, Helvetica, sans-serif;
+    color:#FF8E00;
+}
+
+.padleft:hover {
+    color:#CB7101;
+}
+
+.textNavbar{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:white;
+}
+
+.textNavbar:hover{
+    color:#A4A29F;
 }
